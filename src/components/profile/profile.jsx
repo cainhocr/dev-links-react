@@ -1,8 +1,12 @@
-export default function profile(){
-    return(
-    <div className="profile">
-<img src="" alt="" />
-        <p>@cr_cr_zn</p>
+import styles from "./profile.module.css";
+
+const Profile = ({ children, imgsrc, imgalt }) => {
+  return (
+    <div id={styles.profile}>
+      <img src={imgsrc} alt={imgalt} />
+      <p>{children}</p>
     </div>
-    )
-}
+  );
+};
+
+export default Profile;
