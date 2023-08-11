@@ -12,15 +12,20 @@ import imgLightMode from "../img/cr.jpg";
 
 const App = () => {
   const [isLightMode, setIsLightMode] = useState(true);
+const toggleMode = () =>{
+  setIsLightMode((prevMode) => !prevMode);
+}
 
   const imgsrc = isLightMode ? imgLightMode : imgDarkMode;
   const imgalt = isLightMode ? "imagem no Modo Claro" : "imagem no modo escuro";
+
   return (
+    <div id="App" className= {isLightMode ? "light" : ""}>
     <div id="container">
-      <Profile imgsrc={imgDarkMode} imgalt={imgalt}>
+      <Profile imgsrc={imgsrc} imgalt={imgalt}>
         @cr_cr_zn
       </Profile>
-      <Switch></Switch>
+      <Switch mode={toggleMode} infobutton={isLightMode} />
       <div id="links">
         <ul>
           <Links link={"https://github.com"}>Github</Links>
@@ -28,6 +33,7 @@ const App = () => {
           <Links link={"#"}>Portifolio</Links>
           <Links link={"#"}>Projetos</Links>
         </ul>
+        </div> 
       </div>
       <div id="socialLinks">
         <SocialLinks href={"#"} icon={"logo-github"} />
